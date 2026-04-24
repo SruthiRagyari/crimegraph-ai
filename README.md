@@ -10,7 +10,7 @@
 
 **An AI-powered criminal network visualization tool for law enforcement intelligence analysis.**
 
-[🔴 Live Demo](https://crimegraph-ai.vercel.app) · [📋 Report Bug](https://github.com/yourusername/crimegraph-ai/issues) · [💡 Request Feature](https://github.com/yourusername/crimegraph-ai/issues)
+[🔴 Live Demo](https://crimegraph-ai.vercel.app) · [📋 Report Bug](https://github.com/SruthiRagyari/crimegraph-ai/issues) · [💡 Request Feature](https://github.com/SruthiRagyari/crimegraph-ai/issues)
 
 </div>
 
@@ -61,7 +61,7 @@ Traditional investigation methods require manually cross-referencing CDR data, b
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/crimegraph-ai.git
+git clone https://github.com/SruthiRagyari/crimegraph-ai.git
 
 # 2. Navigate to the project folder
 cd crimegraph-ai
