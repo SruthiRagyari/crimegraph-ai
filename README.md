@@ -203,17 +203,22 @@ Or simply connect your GitHub repo at [vercel.com](https://vercel.com).
 
 ## 🔮 Roadmap
 
-- [x] ~~Interactive force-directed graph~~
-- [x] ~~Multi-type nodes & relationship edges~~
-- [x] ~~Landing page with role selection~~
-- [x] ~~Responsive design (mobile + tablet + desktop)~~
-- [x] ~~Role-based access (Investigator vs Demo)~~
-- [ ] **Backend API** — FastAPI + persistent database
-- [ ] **CDR Import** — Parse real CDR CSV files
-- [ ] **Shortest Path** — Dijkstra between two suspects
-- [ ] **Temporal View** — Animate connections over time
-- [ ] **Telugu UI** — Localized for AP Police officers
-- [ ] **Authentication** — Secure login for investigators
+### ✅ Completed
+- [x] Interactive force-directed graph (vis-network + Barnes-Hut physics)
+- [x] Multi-type nodes & relationship edges (5 types, 12+ relations)
+- [x] Landing page with role selection UI
+- [x] Responsive design — mobile, tablet & desktop
+- [x] Role-based access — Investigator (full) vs Demo (read-only)
+- [x] Export graph as PNG
+- [x] Real-time search & entity-type filtering
+
+### 🔜 Coming Soon
+- [ ] **Backend API** — FastAPI + persistent PostgreSQL database
+- [ ] **CDR Import** — Parse real Call Detail Records (CSV) into graph
+- [ ] **Shortest Path** — Dijkstra algorithm between any two suspects
+- [ ] **Temporal View** — Animate connections over a timeline
+- [ ] **Telugu UI** — Localized interface for AP Police officers
+- [ ] **Authentication** — Secure login & session management for investigators
 
 ---
 
