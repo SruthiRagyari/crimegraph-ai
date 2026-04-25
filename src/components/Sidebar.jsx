@@ -3,7 +3,7 @@ import NodeForm from './NodeForm'
 import EdgeForm from './EdgeForm'
 import { NODE_TYPES } from '../data/demoData'
 
-export default function Sidebar({ nodes, onAddNode, onAddEdge, filterType, setFilterType, searchQuery, setSearchQuery }) {
+export default function Sidebar({ nodes, onAddNode, onAddEdge, filterType, setFilterType, searchQuery, setSearchQuery, readOnly = false }) {
     const [activeTab, setActiveTab] = useState('add-node') // 'add-node' | 'add-edge' | 'filter'
 
     const suspectCount = nodes.filter(n => n.type === 'suspect').length
@@ -57,21 +57,32 @@ export default function Sidebar({ nodes, onAddNode, onAddEdge, filterType, setFi
                 </div>
             </div>
 
-            {/* Tabs */}
-            <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
-                <TabBtn label="Add Node" active={activeTab === 'add-node'} onClick={() => setActiveTab('add-node')} />
-                <TabBtn label="Add Link" active={activeTab === 'add-edge'} onClick={() => setActiveTab('add-edge')} />
-            </div>
-
-            {/* Tab content */}
-            <div style={{ padding: '16px', overflowY: 'auto', flex: 1 }}>
-                {activeTab === 'add-node' && (
-                    <NodeForm onAdd={onAddNode} onCancel={() => { }} />
-                )}
-                {activeTab === 'add-edge' && (
-                    <EdgeForm nodes={nodes} onAdd={onAddEdge} onCancel={() => { }} />
-                )}
-            </div>
+            {/* Tabs — only in investigator mode */}
+            {!readOnly && (
+                <>
+                    <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
+                        <TabBtn label="Add Node" active={activeTab === 'add-node'} onClick={() => setActiveTab('add-node')} />
+                        <TabBtn label="Add Link" active={activeTab === 'add-edge'} onClick={() => setActiveTab('add-edge')} />
+                    </div>
+                    <div style={{ padding: '16px', overflowY: 'auto', flex: 1 }}>
+                        {activeTab === 'add-node' && (
+                            <NodeForm onAdd={onAddNode} onCancel={() => { }} />
+                        )}
+                        {activeTab === 'add-edge' && (
+                            <EdgeForm nodes={nodes} onAdd={onAddEdge} onCancel={() => { }} />
+                        )}
+                    </div>
+                </>
+            )}
+            {readOnly && (
+                <div style={{ padding: '16px', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '12px' }}>
+                        <div style={{ fontSize: '28px', marginBottom: '8px' }}>🔒</div>
+                        <div style={{ fontWeight: 600, marginBottom: '4px' }}>Demo Mode</div>
+                        <div>Editing is disabled.<br/>Switch to Investigator for full access.</div>
+                    </div>
+                </div>
+            )}
 
             {/* Footer */}
             <div style={{ padding: '10px 16px', borderTop: '1px solid var(--border)', fontSize: '10px', color: 'var(--text-muted)', textAlign: 'center' }}>

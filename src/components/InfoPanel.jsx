@@ -1,7 +1,7 @@
 import React from 'react'
 import { NODE_TYPES } from '../data/demoData'
 
-export default function InfoPanel({ node, edge, onClose, onDelete }) {
+export default function InfoPanel({ node, edge, onClose, onDelete, readOnly = false }) {
     if (!node && !edge) return null
 
     const isNode = !!node
@@ -65,9 +65,11 @@ export default function InfoPanel({ node, edge, onClose, onDelete }) {
 
             {/* Actions */}
             <div style={{ padding: '10px 16px', borderTop: '1px solid var(--border)', display: 'flex', gap: '8px' }}>
-                <button className="btn btn-danger" style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }} onClick={() => onDelete(item, isNode ? 'node' : 'edge')}>
-                    🗑️ Remove
-                </button>
+                {!readOnly && (
+                    <button className="btn btn-danger" style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }} onClick={() => onDelete(item, isNode ? 'node' : 'edge')}>
+                        🗑️ Remove
+                    </button>
+                )}
                 <button className="btn btn-ghost" style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }} onClick={onClose}>
                     Close
                 </button>
