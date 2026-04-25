@@ -2,6 +2,22 @@
   "name": "crimegraph-ai",
   "private": true,
   "version": "1.0.0",
+  "description": "Criminal Network Visualizer — AI-powered visual link-analysis for AP Police investigators",
+  "author": "Sruthi Ragyari <sruthiragyari@gmail.com>",
+  "homepage": "https://crimegraph-ai.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SruthiRagyari/crimegraph-ai.git"
+  },
+  "keywords": [
+    "criminal-network",
+    "graph-visualization",
+    "law-enforcement",
+    "AI",
+    "react",
+    "vis-network",
+    "andhra-pradesh-police"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
