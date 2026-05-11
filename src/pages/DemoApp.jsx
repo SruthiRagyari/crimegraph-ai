@@ -72,7 +72,7 @@ export default function DemoApp() {
           {(selectedNode || selectedEdge) && (
             <InfoPanel
               node={selectedNode} edge={selectedEdge}
-              nodes={nodes}
+              nodes={nodes} edges={edges}
               onClose={() => { setSelectedNode(null); setSelectedEdge(null) }}
               readOnly={true}
             />

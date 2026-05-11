@@ -33,13 +33,14 @@ function buildVisEdge(e, id) {
         from: e.from,
         to: e.to,
         label: e.label || '',
-        arrows: 'to',
+        arrows: { to: { enabled: true, scaleFactor: 0.6 } },
         dashes: e.dashes || false,
-        color: { color: 'rgba(0,212,255,0.4)', highlight: '#00d4ff', hover: '#00d4ff' },
-        font: { color: 'rgba(0,212,255,0.8)', size: 10, face: 'Inter', strokeWidth: 0 },
-        smooth: { type: 'curvedCW', roundness: 0.1 },
-        width: 1.5,
-        hoverWidth: 3,
+        color: { color: 'rgba(0,212,255,0.28)', highlight: '#00d4ff', hover: '#00d4ff', opacity: 0.85 },
+        font: { color: 'rgba(0,212,255,0.55)', size: 9, face: 'Inter', strokeWidth: 0, align: 'middle' },
+        smooth: { type: 'curvedCW', roundness: 0.18 },
+        width: 1.2,
+        hoverWidth: 2.5,
+        selectionWidth: 2.5,
     }
 }
 
@@ -47,16 +48,18 @@ const NETWORK_OPTIONS = {
     physics: {
         enabled: true,
         barnesHut: {
-            gravitationalConstant: -5000,
-            springConstant: 0.04,
-            springLength: 160,
-            damping: 0.3,
+            gravitationalConstant: -10000,
+            centralGravity: 0.15,
+            springConstant: 0.025,
+            springLength: 260,
+            damping: 0.42,
+            avoidOverlap: 1,
         },
-        stabilization: { iterations: 300, updateInterval: 30 },
+        stabilization: { iterations: 400, updateInterval: 25 },
     },
-    interaction: { hover: true, tooltipDelay: 300, zoomView: true, dragView: true },
-    nodes: { margin: 10 },
-    edges: { selectionWidth: 3 },
+    interaction: { hover: true, tooltipDelay: 200, zoomView: true, dragView: true, multiselect: false },
+    nodes: { margin: 14 },
+    edges: { selectionWidth: 2.5 },
 }
 
 export default function GraphCanvas({ nodes, edges, filterType, searchQuery, onNodeClick, onEdgeClick, networkRef }) {
