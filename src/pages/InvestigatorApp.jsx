@@ -108,6 +108,7 @@ export default function InvestigatorApp() {
           {(selectedNode || selectedEdge) && (
             <InfoPanel
               node={selectedNode} edge={selectedEdge}
+              nodes={nodes}
               onClose={() => { setSelectedNode(null); setSelectedEdge(null) }}
               onDelete={handleDelete}
               readOnly={false}
